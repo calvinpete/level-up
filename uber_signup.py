@@ -2,7 +2,7 @@ class Signup(object):
     """ A signup form of
     the UBER website."""
 
-    def __init__(self, first_name, last_name, email_address, phone_number, password, promotion_code = None):
+    def __init__(self, first_name, last_name, email_address, phone_number, password, promotion_code=None):
         self.first_name = first_name
         self.last_name = last_name
         self.email_address = email_address
@@ -29,10 +29,8 @@ class Signup(object):
         if matcher1:
             return self.password
         else:
-            return "Password should have more than 7 characters with at least one Uppercase, one Lowercase and one number"
-
-    def user_check(self):
-        pass
+            return """Password should have more than 7 characters with at least
+            one Uppercase, one Lowercase and one number"""
 
     def validate_phone(self):
         import re
@@ -43,13 +41,15 @@ class Signup(object):
         else:
             return "invalid phone number"
 
+    def check_user(self):
+        pass
 
-    def submit(self):
+    def add_rider(self):
         pass
 
 
 class Driver(Signup):
-    def __init__(self, first_name, last_name, email_address, phone_number, password, city, invite_promo_code = None):
+    def __init__(self, first_name, last_name, email_address, phone_number, password, city, invite_promo_code=None):
         super(Driver, self).__init__(first_name, last_name, email_address, phone_number, password)
         self.city = city
         self.invite_promo_code = invite_promo_code
@@ -62,4 +62,3 @@ class Driver(Signup):
             return self.password
         else:
             return "Password should have more than 4 characters  with at least one lowercase and one number"
-
