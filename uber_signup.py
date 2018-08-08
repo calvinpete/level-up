@@ -35,7 +35,14 @@ class Signup(object):
         pass
 
     def validate_phone(self):
-        pass
+        import re
+        phone_no = re.compile("(\d).{6,}")
+        matcher2 = phone_no.match(self.phone_number)
+        if matcher2:
+            return "valid phone number"
+        else:
+            return "invalid phone number"
+
 
     def submit(self):
         pass
