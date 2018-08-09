@@ -21,7 +21,7 @@ class Signup(object):
         if matcher:
             return "Valid email address"
         else:
-            return "Invalid email address"
+            raise ValueError("Invalid email address")
 
     def validate_password(self):
         import re
@@ -30,8 +30,8 @@ class Signup(object):
         if matcher1:
             return self.password
         else:
-            return """Password should have more than 7 characters with at least
-            one Uppercase, one Lowercase and one number"""
+            raise ValueError("Password should have more than 7 characters with at least "
+                             "one Uppercase, one Lowercase and one number")
 
     @staticmethod
     def validate_phone(phone_number):
@@ -41,7 +41,7 @@ class Signup(object):
         if matcher2:
             return "valid phone number"
         else:
-            return "invalid phone number"
+            raise ValueError("Invalid phone number")
 
     def check_user(self):
         pass
@@ -63,5 +63,5 @@ class Driver(Signup):
         if matcher1:
             return self.password
         else:
-            return "Password should have more than 4 characters  with at least one lowercase and one number"
+            raise ValueError("Password should have more than 4 characters  with at least one lowercase and one number")
 
