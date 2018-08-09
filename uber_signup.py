@@ -36,7 +36,7 @@ class Signup(object):
     @staticmethod
     def validate_phone(phone_number):
         import re
-        phone_no = re.compile("(\d).{6,}")
+        phone_no = re.compile("^[0-9]{6,}$")
         matcher2 = phone_no.match(phone_number)
         if matcher2:
             return "valid phone number"
