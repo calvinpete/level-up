@@ -54,6 +54,7 @@ class Driver(Signup):
         super(Driver, self).__init__(first_name, last_name, email_address, phone_number, password)
         self.city = city
         self.invite_promo_code = invite_promo_code
+        self.driver = []
 
     def validate_password(self):
         import re
@@ -63,4 +64,9 @@ class Driver(Signup):
             return self.password
         else:
             raise ValueError("Password should have more than 4 characters  with at least one lowercase and one number")
+
+    def add_driver(self):
+        self.driver.append([self.first_name, self.last_name, self.email_address,
+                           self.phone_number, self.password, self.city, self.invite_promo_code])
+        return self.driver
 
