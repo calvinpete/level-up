@@ -5,18 +5,19 @@ class Signup(object):
     def __init__(self, first_name, last_name, email_address, phone_number, password, promotion_code=None):
         self.first_name = first_name
         self.last_name = last_name
-        self.email_address = email_address
-        self.phone_number = phone_number
+        self.email_address = Signup.validate_email(email_address)
+        self.phone_number = Signup.validate_phone(phone_number)
         self.password = password
         self.promotion_code = promotion_code
 
     def full_name(self):
         return '{}{}'.format(self.first_name, self.last_name)
 
-    def validate_email(self):
+    @staticmethod
+    def validate_email(email_address):
         import re
         e_mail = re.compile("(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)")
-        matcher = e_mail.match(self.email_address)
+        matcher = e_mail.match(email_address)
         if matcher:
             return "Valid email address"
         else:
@@ -32,10 +33,11 @@ class Signup(object):
             return """Password should have more than 7 characters with at least
             one Uppercase, one Lowercase and one number"""
 
-    def validate_phone(self):
+    @staticmethod
+    def validate_phone(phone_number):
         import re
         phone_no = re.compile("(\d).{6,}")
-        matcher2 = phone_no.match(self.phone_number)
+        matcher2 = phone_no.match(phone_number)
         if matcher2:
             return "valid phone number"
         else:
@@ -62,3 +64,4 @@ class Driver(Signup):
             return self.password
         else:
             return "Password should have more than 4 characters  with at least one lowercase and one number"
+
