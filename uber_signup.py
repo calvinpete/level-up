@@ -9,6 +9,7 @@ class Signup(object):
         self.phone_number = Signup.validate_phone(phone_number)
         self.password = password
         self.promotion_code = promotion_code
+        self.rider = []
 
     def full_name(self):
         return '{}{}'.format(self.first_name, self.last_name)
@@ -43,12 +44,10 @@ class Signup(object):
         else:
             raise ValueError("Invalid phone number")
 
-    def check_user(self):
-        pass
-
     def add_rider(self):
-        pass
-
+        self.rider.append([self.first_name, self.last_name, self.email_address,
+                           self.phone_number, self.password, self.promotion_code])
+        return self.rider
 
 class Driver(Signup):
     def __init__(self, first_name, last_name, email_address, phone_number, password, city, invite_promo_code=None):
