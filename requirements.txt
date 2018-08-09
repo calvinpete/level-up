@@ -29,7 +29,6 @@ pathlib2==2.3.2
 pipreqs==0.4.9
 pluggy==0.7.1
 psutil==5.4.2
-puddletag==1.2.0
 py==1.5.4
 pyacoustid==1.1.2
 pycairo==1.16.2
