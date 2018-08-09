@@ -15,14 +15,14 @@ Clone the project on your local machine for development and testing purposes.
 * Python 2.7
 * Internet
 
-#Built With
+# Built With
 
 Python
 
-#Authors
+# Authors
 
 Calvin Tinka
 
-#License
+# License
 
 This application is opensource.
